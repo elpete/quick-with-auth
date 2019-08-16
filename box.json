@@ -1,8 +1,8 @@
 {
     "name":"Quick with Auth Template",
-    "version":"1.0",
+    "version":"0.0.0",
     "author":"You",
-    "location":"coldbox-templates/quick-with-auth#v0.0.0",
+    "location":"elpete/quick-with-auth#v0.0.0",
     "slug":"cbtemplate-advanced-script",
     "createPackageDirectory":false,
     "type":"mvc",
@@ -43,7 +43,7 @@
         "redirectBack":"^1.0.4"
     },
     "scripts":{
-        "postVersion":"package set location='coldbox-templates/quick-with-auth#v`package version`'",
+        "postVersion":"package set location='elpete/quick-with-auth#v`package version`'",
         "postPublish":"!git push --follow-tags",
         "postInstall":"pathExists .env || cp .env.example .env"
     },
