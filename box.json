@@ -1,0 +1,60 @@
+{
+    "name":"Quick with Auth Template",
+    "version":"1.0",
+    "author":"You",
+    "location":"coldbox-templates/quick-with-auth#v0.0.0",
+    "slug":"cbtemplate-advanced-script",
+    "createPackageDirectory":false,
+    "type":"mvc",
+    "keywords":"",
+    "homepage":"",
+    "documentation":"",
+    "repository":{
+        "type":"",
+        "url":""
+    },
+    "bugs":"",
+    "shortDescription":"",
+    "contributors":[],
+    "ignore":[],
+    "devDependencies":{
+        "testbox":"^3.0.0",
+        "commandbox-dotenv":"^1.6.0",
+        "commandbox-migrations":"^1.5.2",
+        "commandbox-cfconfig":"^1.0.3"
+    },
+    "installPaths":{
+        "coldbox":"coldbox/",
+        "testbox":"testbox/",
+        "quick":"modules/quick/",
+        "cbauth":"modules/cbauth/",
+        "cbguard":"modules/cbguard/",
+        "BCrypt":"modules/BCrypt/",
+        "cbvalidation":"modules/cbvalidation/",
+        "redirectBack":"modules/redirectBack/"
+    },
+    "dependencies":{
+        "coldbox":"^5.0.0",
+        "quick":"^2.3.0",
+        "cbauth":"^3.0.0",
+        "cbguard":"^2.0.0",
+        "BCrypt":"^2.5.0-snapshot",
+        "cbvalidation":"^1.4.1+69",
+        "redirectBack":"^1.0.4"
+    },
+    "scripts":{
+        "postVersion":"package set location='coldbox-templates/quick-with-auth#v`package version`'",
+        "postPublish":"!git push --follow-tags",
+        "postInstall":"pathExists .env || cp .env.example .env"
+    },
+    "cfmigrations":{
+        "schema":"${DB_SCHEMA}",
+        "connectionInfo":{
+            "password":"${DB_PASSWORD}",
+            "connectionString":"${DB_CONNECTIONSTRING}",
+            "class":"${DB_CLASS}",
+            "username":"${DB_USER}"
+        },
+        "defaultGrammar":"AutoDiscover"
+    }
+}
