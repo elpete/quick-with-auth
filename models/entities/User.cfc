@@ -13,6 +13,10 @@ component extends="quick.models.BaseEntity" {
         );
     }
 
+    public boolean function hasPermission( required string permission ) {
+        return true;
+    }
+
     public boolean function isValidCredentials(
         required string email,
         required string password
