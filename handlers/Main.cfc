@@ -1,4 +1,4 @@
-﻿component extends="coldbox.system.EventHandler" secured {
+component extends="coldbox.system.EventHandler" secured {
 
 	// Default Action
 	function index( event, rc, prc ) {
