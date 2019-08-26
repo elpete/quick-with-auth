@@ -2,6 +2,7 @@
     <h3>Register for an account</h3>
     <hr />
     <form method="POST" action="#event.buildLink( "registrations" )#">
+        <input type="hidden" name="_token" value="#csrfGenerateToken()#" />
         <div class="form-group">
             <label for="email">Email Address:</label>
             <input name="email" type="email" class="form-control" id="email" />

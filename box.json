@@ -22,7 +22,7 @@
         "commandbox-dotenv":"*",
         "commandbox-migrations":"*",
         "commandbox-cfconfig":"*",
-        "commandbox-cfformat": "*"
+        "commandbox-cfformat":"*"
     },
     "installPaths":{
         "coldbox":"coldbox/",
@@ -32,7 +32,8 @@
         "cbguard":"modules/cbguard/",
         "BCrypt":"modules/BCrypt/",
         "cbvalidation":"modules/cbvalidation/",
-        "redirectBack":"modules/redirectBack/"
+        "redirectBack":"modules/redirectBack/",
+        "verify-csrf-interceptor":"modules/verify-csrf-interceptor/"
     },
     "dependencies":{
         "coldbox":"^5.0.0",
@@ -41,15 +42,16 @@
         "cbguard":"^2.0.0",
         "BCrypt":"^2.5.0-snapshot",
         "cbvalidation":"^1.4.1+69",
-        "redirectBack":"^1.0.4"
+        "redirectBack":"^1.0.4",
+        "verify-csrf-interceptor":"^1.0.2"
     },
     "scripts":{
-        "preVersion": "run-script format:check",
+        "preVersion":"run-script format:check",
         "postVersion":"package set location='elpete/quick-with-auth#v`package version`'",
         "postPublish":"!git push --follow-tags",
         "postInstall":"pathExists .env || cp .env.example .env",
-        "format": "cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --overwrite",
-        "format:check": "cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --check"
+        "format":"cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --overwrite",
+        "format:check":"cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --check"
     },
     "cfmigrations":{
         "schema":"${DB_SCHEMA}",
