@@ -19,9 +19,10 @@
     "ignore":[],
     "devDependencies":{
         "testbox":"^3.0.0",
-        "commandbox-dotenv":"^1.6.0",
-        "commandbox-migrations":"^1.5.2",
-        "commandbox-cfconfig":"^1.0.3"
+        "commandbox-dotenv":"*",
+        "commandbox-migrations":"*",
+        "commandbox-cfconfig":"*",
+        "commandbox-cfformat": "*"
     },
     "installPaths":{
         "coldbox":"coldbox/",
@@ -43,9 +44,12 @@
         "redirectBack":"^1.0.4"
     },
     "scripts":{
+        "preVersion": "run-script format:check",
         "postVersion":"package set location='elpete/quick-with-auth#v`package version`'",
         "postPublish":"!git push --follow-tags",
-        "postInstall":"pathExists .env || cp .env.example .env"
+        "postInstall":"pathExists .env || cp .env.example .env",
+        "format": "cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --overwrite",
+        "format:check": "cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --check"
     },
     "cfmigrations":{
         "schema":"${DB_SCHEMA}",
