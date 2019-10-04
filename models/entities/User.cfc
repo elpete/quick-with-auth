@@ -31,7 +31,7 @@ component extends="quick.models.BaseEntity" {
 	}
 
 	public struct function getMemento(){
-		return { "email" : variables.getEmail() }
+		return { "email" : variables.getEmail() };
 	}
 
 }

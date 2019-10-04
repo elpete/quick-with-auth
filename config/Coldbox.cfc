@@ -119,6 +119,10 @@ component {
 	 */
 	function development(){
 		coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
-	}
+    }
+
+    function testing() {
+        modules.exclude.append( "verify-csrf-interceptor" );
+    }
 
 }

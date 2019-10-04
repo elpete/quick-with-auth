@@ -1,4 +1,8 @@
 {
+    "app":{
+        "cfengine":"adobe@2016",
+        "libDirs":"lib/"
+    },
     "web":{
         "rewrites":{
             "enable":"true"

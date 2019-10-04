@@ -17,9 +17,12 @@ component{
 	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
 	// Map back to its root
 	rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
-	this.mappings["/root"]   = rootPath;
+    this.mappings["/root"]   = rootPath;
 
-	public void function onRequestEnd() { 
+    createObject( "java", "java.lang.System" ).setProperty( "ENVIRONMENT", "testing" );
+    this.datasource = "testing";
+
+	public void function onRequestEnd() {
 		structDelete( application, "cbController" );
 		structDelete( application, "wirebox" );
 	}
