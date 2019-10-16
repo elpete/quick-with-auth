@@ -24,13 +24,53 @@ component extends="coldbox.system.testing.BaseTestCase" {
         }
     }
 
+    /**
+     * Provide a shortcut to WireBox's getInstance method.
+     */
     function getInstance() {
         return application.wirebox.getInstance( argumentCollection = arguments );
     }
 
     /**
-     * This function is tagged as an around each handler.  All the integration tests we build
-     * will be automatically rolledbacked
+     * Swaps out WireBox mappings for coresponding mocks during a callback.
+     * mappings = { "apiClient" = mockApiClient }
+     */
+    function whileSwapped( struct mappings = {}, any callback, boolean verifyMappingExists = true ) {
+        var binder = getWireBox().getBinder();
+        var originalMappings = {};
+        mappings.each( function( mapping, component ) {
+            if ( verifyMappingExists ) {
+                expect( binder.mappingExists( mapping ) ).toBeTrue( "No #mapping# already configured in WireBox" );
+            }
+            originalMappings[ mapping ] = binder.getMapping( mapping );
+            binder.map( alias = mapping, force = true ).toValue( component );
+        } );
+
+        try {
+            callback();
+        }
+        catch ( any e ) {
+            rethrow;
+        }
+        finally {
+            originalMappings.each( function( mapping, component ) {
+                binder.setMapping( mapping, component );
+            } );
+        }
+    }
+
+    /**
+     * Automatically setup a request before each test.
+     *
+     * @beforeEach
+     */
+    function setupRequest() {
+        setup();
+    }
+
+    /**
+     * This function is tagged as an around each handler.
+     * All the integration tests we build will be automatically rolled back.
      *
      * @aroundEach
      */
