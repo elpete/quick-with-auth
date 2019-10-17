@@ -16,9 +16,9 @@ component extends="coldbox.system.testing.BaseTestCase" {
         // Check if migrations ran before all tests
         if ( ! request.keyExists( "migrationsRan" ) ) {
             migrationService.setMigrationsDirectory( "/root/resources/database/migrations" );
-	        migrationService.setDefaultGrammar( "MySQLGrammar" );
+	        migrationService.setDefaultGrammar( "PostgresGrammar" );
             migrationService.setDatasource( "testing" );
-            migrationService.runAllMigrations( "down" );
+            migrationService.reset();
             migrationService.runAllMigrations( "up" );
             request.migrationsRan = true;
         }
