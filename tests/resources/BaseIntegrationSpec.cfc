@@ -32,27 +32,28 @@ component extends="coldbox.system.testing.BaseTestCase" {
     }
 
     /**
-     * Swaps out WireBox mappings for coresponding mocks during a callback.
+     * Swaps out WireBox mappings for corresponding mocks during a callback.
      * mappings = { "apiClient" = mockApiClient }
      */
     function whileSwapped( struct mappings = {}, any callback, boolean verifyMappingExists = true ) {
         var binder = getWireBox().getBinder();
         var originalMappings = {};
         mappings.each( function( mapping, component ) {
-            if ( verifyMappingExists ) {
-                expect( binder.mappingExists( mapping ) ).toBeTrue( "No #mapping# already configured in WireBox" );
+            var exists = binder.mappingExists( mapping );
+            if ( verifyMappingExists && ! exists ) {
+                expect( exists ).toBeTrue( "No #mapping# already configured in WireBox" );
             }
-            originalMappings[ mapping ] = binder.getMapping( mapping );
+            if ( exists ) {
+                originalMappings[ mapping ] = binder.getMapping( mapping );
+            }
             binder.map( alias = mapping, force = true ).toValue( component );
         } );
 
         try {
             callback();
-        }
-        catch ( any e ) {
+        } catch ( any e ) {
             rethrow;
-        }
-        finally {
+        } finally {
             originalMappings.each( function( mapping, component ) {
                 binder.setMapping( mapping, component );
             } );
@@ -64,7 +65,7 @@ component extends="coldbox.system.testing.BaseTestCase" {
      *
      * @beforeEach
      */
-    function setupRequest() {
+    function prepareRequest() {
         setup();
     }
 
