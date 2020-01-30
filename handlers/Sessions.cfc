@@ -4,7 +4,8 @@ component {
 	property name="flash" inject="coldbox:flash";
 
 	function new( event, rc, prc ){
-		param prc.errors = flash.get( "login_form_errors", {} );
+		param prc.errors = flash
+		.get( "login_form_errors", {} );
 		event.setView( "sessions/new" );
 	}
 

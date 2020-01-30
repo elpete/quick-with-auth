@@ -23,7 +23,7 @@
         "commandbox-migrations":"*",
         "commandbox-cfconfig":"*",
         "commandbox-cfformat":"*",
-        "cfmigrations":"^1.5.1"
+        "cfmigrations":"^2.0.0"
     },
     "installPaths":{
         "coldbox":"coldbox/",
@@ -53,8 +53,8 @@
         "onRelease":"publish",
         "postPublish":"!git push --follow-tags",
         "postInstall":"pathExists .env || cp .env.example .env",
-        "format":"cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --overwrite",
-        "format:check":"cfformat config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --check"
+        "format":"cfformat run config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --overwrite",
+        "format:check":"cfformat check config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc"
     },
     "cfmigrations":{
         "schema":"${DB_SCHEMA}",
