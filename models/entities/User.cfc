@@ -1,4 +1,4 @@
-component extends="quick.models.BaseEntity" {
+component extends="quick.models.BaseEntity" accessors="true" {
 
 	property name="bcrypt" inject="@BCrypt" persistent="false";
 
