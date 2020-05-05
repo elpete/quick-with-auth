@@ -41,7 +41,7 @@
     "compileExtForCFInclude":"*",
     "componentCacheEnabled":true,
     "datasources":{
-        "coldbox":{
+        "${DB_DATABASE}":{
             "allowAlter":true,
             "allowCreate":true,
             "allowDelete":true,
