@@ -39,7 +39,7 @@
     },
     "dependencies":{
         "coldbox":"^5.0.0",
-        "quick":"3.0.0-beta.1",
+        "quick":"^3.0.0",
         "cbauth":"^3.0.0",
         "cbguard":"^2.0.0",
         "BCrypt":"^2.5.0-snapshot",
