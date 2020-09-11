@@ -80,7 +80,7 @@ component {
 		// module setting overrides
 		moduleSettings = {
 			cbauth : { userServiceClass : "User" },
-			cbguard : { authenticationOverrideEvent : "login", authorizationOverrideEvent : "login" }
+			cbguard : { authenticationOverrideEvent : "sessions.new", authorizationOverrideEvent : "sessions.new" }
 		};
 
 		/*
@@ -118,7 +118,7 @@ component {
 	 * Development environment
 	 */
 	function development(){
-		coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
+		coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm";
 	}
 
 	function testing(){

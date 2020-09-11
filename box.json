@@ -1,8 +1,8 @@
 {
     "name":"Quick with Auth Template",
-    "version":"2.0.0",
+    "version":"3.0.0",
     "author":"You",
-    "location":"elpete/quick-with-auth#v2.0.0",
+    "location":"elpete/quick-with-auth#v3.0.0",
     "slug":"cbtemplate-quick-with-auth",
     "createPackageDirectory":false,
     "type":"mvc",
@@ -18,7 +18,7 @@
     "contributors":[],
     "ignore":[],
     "devDependencies":{
-        "testbox":"^3.0.0",
+        "testbox":"^4.0.0",
         "commandbox-dotenv":"*",
         "commandbox-migrations":"*",
         "commandbox-cfconfig":"*",
@@ -38,14 +38,14 @@
         "cfmigrations":"modules/cfmigrations/"
     },
     "dependencies":{
-        "coldbox":"^5.0.0",
-        "quick":"^3.0.0",
-        "cbauth":"^3.0.0",
-        "cbguard":"^2.0.0",
-        "BCrypt":"^2.5.0-snapshot",
-        "cbvalidation":"^1.4.1+69",
-        "redirectBack":"^1.0.5",
-        "verify-csrf-interceptor":"^1.0.2"
+        "coldbox":"^6.0.0",
+        "quick":"^4.0.0",
+        "cbauth":"^5.0.0",
+        "cbguard":"^4.0.0",
+        "BCrypt":"^2.5.0",
+        "cbvalidation":"^2.2.0",
+        "redirectBack":"^1.2.2",
+        "verify-csrf-interceptor":"^2.0.0"
     },
     "scripts":{
         "preVersion":"run-script format:check",

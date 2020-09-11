@@ -8,11 +8,12 @@ component implements="cbvalidation.models.validators.IValidator" singleton {
 	 * @targetValueThe target value to validate
 	 */
 	boolean function validate(
-		required cbvalidation.models.result.IValidationResult validationResult,
+		required any validationResult,
 		required any target,
 		required string field,
 		any targetValue,
-		any validationData
+		any validationData,
+		struct rules
 	){
 		var exists = queryExecute(
 			"SELECT 1 FROM #arguments.validationData.table# WHERE #arguments.validationData.column# = ?",
