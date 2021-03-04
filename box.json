@@ -35,17 +35,16 @@
         "cbvalidation":"modules/cbvalidation/",
         "redirectBack":"modules/redirectBack/",
         "verify-csrf-interceptor":"modules/verify-csrf-interceptor/",
-        "cfmigrations":"modules/cfmigrations/"
+        "cfmigrations":"modules/cfmigrations/",
+        "cbsecurity":"modules/cbsecurity/"
     },
     "dependencies":{
         "coldbox":"^6.0.0",
         "quick":"^4.0.0",
-        "cbauth":"^5.0.0",
-        "cbguard":"^4.0.0",
-        "BCrypt":"^2.5.0",
-        "cbvalidation":"^2.2.0",
-        "redirectBack":"^1.2.2",
-        "verify-csrf-interceptor":"^2.0.0"
+        "cbsecurity":"^2.0.0",
+        "BCrypt":"^3.0.0",
+        "cbvalidation":"^3.0.0",
+        "redirectBack":"^1.2.2"
     },
     "scripts":{
         "preVersion":"run-script format:check",
