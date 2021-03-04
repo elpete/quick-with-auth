@@ -5,7 +5,7 @@ component extends="tests.resources.BaseIntegrationSpec" {
 	function run(){
 		describe( "sessions", function() {
 			beforeEach( function() {
-				auth.logout();
+				auth.quietLogout();
 			} );
 
 			it( "can log in a user", function() {

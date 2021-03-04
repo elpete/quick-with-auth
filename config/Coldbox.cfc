@@ -80,7 +80,15 @@ component {
 		// module setting overrides
 		moduleSettings = {
 			cbauth : { userServiceClass : "User" },
-			cbguard : { authenticationOverrideEvent : "sessions.new", authorizationOverrideEvent : "sessions.new" }
+            cbsecurity: {
+                "invalidAuthenticationEvent"	: "sessions.new",
+                "defaultAuthenticationAction"	: "redirect",
+                "invalidAuthorizationEvent"		: "sessions.new",
+                "defaultAuthorizationAction"	: "redirect",
+                "validator"						: "CBAuthValidator@cbsecurity",
+                "authenticationService"  		: "authenticationService@cbauth",
+                "userService"             		: "User"
+            }
 		};
 
 		/*
