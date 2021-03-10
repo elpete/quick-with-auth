@@ -4,11 +4,15 @@ component {
 	property name="flash" inject="coldbox:flash";
 
 	function new( event, rc, prc ){
+		param rc._securedUrl = flash.get( "_securedUrl", "/" );
+		flash.put( "_securedUrl", rc._securedUrl );
 		param prc.errors = flash.get( "registration_form_errors", {} );
 		event.setView( "registrations/new" );
 	}
 
 	function create( event, rc, prc ){
+		flash.keep( "_securedUrl" );
+
 		var result = validateModel(
 			target = rc,
 			constraints = {
@@ -32,7 +36,7 @@ component {
 
 		auth.login( user );
 
-		relocate( uri = "/" );
+		relocate( uri = flash.get( "_securedUrl", "/" ) );
 	}
 
 }
