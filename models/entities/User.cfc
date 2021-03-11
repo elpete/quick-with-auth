@@ -16,7 +16,7 @@ component extends="quick.models.BaseEntity" accessors="true" {
 
 	public boolean function isValidCredentials( required string email, required string password ){
 		var user = newEntity().where( "email", arguments.email ).first();
-		if ( !user.isLoaded() ) {
+		if ( isNull( user ) ) {
 			return false;
 		}
 		return bcrypt.checkPassword( arguments.password, user.getPassword() );
