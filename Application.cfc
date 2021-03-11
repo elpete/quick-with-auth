@@ -14,7 +14,7 @@ component {
 	// Java Integration
 	this.javaSettings = { loadPaths : [ ".\lib" ], loadColdFusionClassPath : true, reloadOnChange : false };
 
-	this.datasource = "coldbox";
+	this.datasource = getSystemSetting( "DB_DATABASE" );
 
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
 	COLDBOX_APP_ROOT_PATH = getDirectoryFromPath( getCurrentTemplatePath() );
@@ -62,6 +62,28 @@ component {
 
 	public boolean function onMissingTemplate( template ){
 		return application.cbBootstrap.onMissingTemplate( argumentCollection = arguments );
+	}
+
+	function getSystemSetting( required string key, any defaultValue ){
+		param variables.javaSystem = createObject( "java", "java.lang.System" );
+		var value = variables.javaSystem.getProperty( arguments.key );
+		if ( !isNull( local.value ) ) {
+			return value;
+		}
+
+		value = variables.javaSystem.getEnv( arguments.key );
+		if ( !isNull( local.value ) ) {
+			return value;
+		}
+
+		if ( !isNull( arguments.defaultValue ) ) {
+			return arguments.defaultValue;
+		}
+
+		throw(
+			type = "SystemSettingNotFound",
+			message = "Could not find a Java System property or Env setting with key [#arguments.key#]."
+		);
 	}
 
 }
