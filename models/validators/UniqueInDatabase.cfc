@@ -1,4 +1,4 @@
-component implements="cbvalidation.models.validators.IValidator" singleton {
+component implements="cbvalidation.interfaces.IValidator" singleton {
 
 	/**
 	 * Will check if an incoming value validates
