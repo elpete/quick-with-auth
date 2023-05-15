@@ -18,12 +18,12 @@
     "contributors":[],
     "ignore":[],
     "devDependencies":{
-        "testbox":"^4.0.0",
+        "testbox":"^5.0.0",
         "commandbox-dotenv":"*",
         "commandbox-migrations":"*",
         "commandbox-cfconfig":"*",
         "commandbox-cfformat":"*",
-        "cfmigrations":"^2.0.0"
+        "cfmigrations":"^4.0.0"
     },
     "installPaths":{
         "coldbox":"coldbox/",
@@ -40,11 +40,11 @@
     },
     "dependencies":{
         "coldbox":"^6.0.0",
-        "quick":"^4.0.0",
-        "cbsecurity":"^2.0.0",
+        "quick":"^6.0.0",
+        "cbsecurity":"^3.3.0",
         "BCrypt":"^3.0.0",
-        "cbvalidation":"^3.0.0",
-        "redirectBack":"^1.2.2"
+        "cbvalidation":"^4.2.0",
+        "redirectBack":"^2.0.0"
     },
     "scripts":{
         "preVersion":"run-script format:check",
@@ -54,17 +54,5 @@
         "postInstall":"pathExists .env || cp .env.example .env",
         "format":"cfformat run config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc --overwrite",
         "format:check":"cfformat check config/**/*.cfc,handlers/**/*.cfc,includes/**/*.cfc,interceptors/**/*.cfc,layouts/**/*.cfc,models/**/*.cfc,modules_app/**/*.cfc,resources/**/*.cfc,tests/specs/**/*.cfc,views/**/*.cfc,*.cfc"
-    },
-    "cfmigrations":{
-        "schema":"${DB_SCHEMA}",
-        "connectionInfo":{
-            "password":"${DB_PASSWORD}",
-            "connectionString":"${DB_CONNECTIONSTRING}",
-            "class":"${DB_CLASS}",
-            "username":"${DB_USER}",
-            "bundleName":"${DB_BUNDLENAME}",
-            "bundleVersion":"${DB_BUNDLEVERSION}"
-        },
-        "defaultGrammar":"AutoDiscover@qb"
     }
 }

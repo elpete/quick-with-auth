@@ -79,15 +79,20 @@ component {
 
 		// module setting overrides
 		moduleSettings = {
-			cbauth : { userServiceClass : "User" },
-			cbsecurity : {
-				"invalidAuthenticationEvent" : "sessions.new",
-				"defaultAuthenticationAction" : "redirect",
-				"invalidAuthorizationEvent" : "sessions.new",
-				"defaultAuthorizationAction" : "redirect",
-				"validator" : "CBAuthValidator@cbsecurity",
-				"authenticationService" : "authenticationService@cbauth",
-				"userService" : "User"
+			"cbauth" : { "userServiceClass" : "User" },
+			"cbsecurity" : {
+				"authentication" : {
+					"provider" : "AuthenticationService@cbauth",
+					"userService" : "User",
+					"prcUserVariables" : "user"
+				},
+				"firewall" : {
+					"validator" : "AuthValidator@cbsecurity",
+					"invalidAuthenticationEvent" : "sessions.new",
+					"defaultAuthenticationAction" : "redirect",
+					"invalidAuthorizationEvent" : "sessions.new",
+					"defaultAuthorizationAction" : "redirect"
+				}
 			}
 		};
 

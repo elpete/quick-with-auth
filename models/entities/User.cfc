@@ -6,6 +6,8 @@ component extends="quick.models.BaseEntity" accessors="true" {
 	property name="email";
 	property name="password";
 
+	this.memento = { "defaultExcludes" : [ "id" ], "neverInclude" : [ "password" ] };
+
 	public User function setPassword( required string password ){
 		return assignAttribute( "password", bcrypt.hashPassword( arguments.password ) );
 	}
@@ -28,10 +30,6 @@ component extends="quick.models.BaseEntity" accessors="true" {
 
 	public User function retrieveUserById( required numeric id ){
 		return newEntity().findOrFail( arguments.id );
-	}
-
-	public struct function getMemento(){
-		return { "email" : variables.getEmail() };
 	}
 
 }
