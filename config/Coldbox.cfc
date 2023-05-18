@@ -93,6 +93,19 @@ component {
 					"invalidAuthorizationEvent" : "sessions.new",
 					"defaultAuthorizationAction" : "redirect"
 				}
+			},
+			"cfmigrations" : {
+				"managers" : {
+					"default" : {
+						"manager" : "cfmigrations.models.QBMigrationManager",
+						"migrationsDirectory" : "resources/database/migrations/",
+						"properties" : {
+							"defaultGrammar" : "AutoDiscover@qb",
+							"schema" : getSystemSetting( "DB_SCHEMA" ),
+							"datasource" : getSystemSetting( "DB_DATABASE" )
+						}
+					}
+				}
 			}
 		};
 
@@ -136,6 +149,15 @@ component {
 
 	function testing(){
 		modules.exclude.append( "verify-csrf-interceptor" );
+		moduleSettings.cfmigrations.managers[ "testing" ] = {
+			"manager" : "cfmigrations.models.QBMigrationManager",
+			"migrationsDirectory" : "/root/resources/database/migrations",
+			"properties" : {
+				"defaultGrammar" : "AutoDiscover@qb",
+				"schema" : getSystemSetting( "TEST_DB_SCHEMA" ),
+				"datasource" : getSystemSetting( "TEST_DB_DATABASE" )
+			}
+		};
 	}
 
 }
