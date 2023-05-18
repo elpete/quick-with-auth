@@ -1,8 +1,8 @@
 {
     "name":"Quick with Auth Template",
-    "version":"5.0.0",
+    "version":"5.0.1",
     "author":"You",
-    "location":"elpete/quick-with-auth#v5.0.0",
+    "location":"elpete/quick-with-auth#v5.0.1",
     "slug":"cbtemplate-quick-with-auth",
     "createPackageDirectory":false,
     "type":"mvc",
