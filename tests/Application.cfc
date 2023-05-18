@@ -17,10 +17,12 @@ component{
 	this.mappings[ "/tests" ] = getDirectoryFromPath( getCurrentTemplatePath() );
 	// Map back to its root
 	rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
-    this.mappings["/root"]   = rootPath;
+    this.mappings[ "/root" ]   = rootPath;
+    this.mappings[ "/coldbox" ]   = rootPath & "coldbox";
 
     createObject( "java", "java.lang.System" ).setProperty( "ENVIRONMENT", "testing" );
-    this.datasource = "testing";
+	variables.util = new coldbox.system.core.util.Util();
+    this.datasource = variables.util.getSystemSetting( "TEST_DB_DATABASE" );
 
 	public void function onRequestEnd() {
 		structDelete( application, "cbController" );
