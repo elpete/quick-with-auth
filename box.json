@@ -10,8 +10,8 @@
     "homepage":"",
     "documentation":"",
     "repository":{
-        "type":"",
-        "url":""
+        "type":"Git",
+        "url":"https://github.com/elpete/quick-with-auth.git"
     },
     "bugs":"",
     "shortDescription":"",
