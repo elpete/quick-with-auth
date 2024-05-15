@@ -39,8 +39,8 @@
         "cbsecurity":"modules/cbsecurity/"
     },
     "dependencies":{
-        "coldbox":"^6.0.0",
-        "quick":"^6.0.0",
+        "coldbox":"^7.0.0",
+        "quick":"^8.0.0",
         "cbsecurity":"^3.3.0",
         "BCrypt":"^3.0.0",
         "cbvalidation":"^4.2.0",
