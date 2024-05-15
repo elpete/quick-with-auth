@@ -8,7 +8,7 @@ Apache License, Version 2.0.
 ## Important Links
 
 Source Code
-- https://github.com/coldbox-templates/advanced-script
+- https://github.com/elpete/quick-with-auth
 
 ## Quick Installation
 
@@ -35,5 +35,5 @@ And run the application.
 
 ---
 
-###THE DAILY BREAD
+### THE DAILY BREAD
  > "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
